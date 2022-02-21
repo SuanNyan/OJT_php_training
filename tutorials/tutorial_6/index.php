@@ -2,9 +2,10 @@
 if(isset($_POST['btnupload']))
 {
     $allowfile = array('gif', 'png', 'jpg','jpeg','jfif');
-
+$path = $_POST['txtfilepath'];
+$newdir=mkdir($path,077,true);
   $filephoto=$_FILES['filephoto']['name'];
-  $Folder="profile/";
+  $Folder="$path";
 
   $filename=$Folder. $filephoto;
   $copied=copy($_FILES['filephoto']['tmp_name'],$filename);
@@ -20,6 +21,7 @@ if(isset($_POST['btnupload']))
   }
 else{
     echo  $filephoto.' '."<br><label>Image File Uploaded.</label>";
+
 }
 }
 ?>
@@ -34,6 +36,7 @@ else{
 <body>
   <form action="index.php" method="POST" enctype="multipart/form-data">
     <input type="file" name="filephoto"><br><br>
+    <input type="text" name="txtfilepath" placeholder="insert folder name to upload"><br><br>
     <button type="submit" name="btnupload">Upload Photo</button>
   </form>
 </body>
