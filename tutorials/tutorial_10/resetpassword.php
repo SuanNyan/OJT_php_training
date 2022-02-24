@@ -18,15 +18,15 @@ $email = $_POST['txtemail'];
     //Set this to true if SMTP host requires authentication to send email
     $mail->SMTPAuth = true;                          
     //Provide username and password     
-    $mail->Username = "suanthnjobs@gmail.com";                 
-    $mail->Password = "Suanisworkingnowto1";                           
+    $mail->Username = "";                 
+    $mail->Password = "";                           
     //If SMTP requires TLS encryption then set it
     $mail->SMTPSecure = "tls";  
     //$mail->SMTPSecure = false;
     //Set TCP port to connect to
     $mail->Port = 587;                                   
     
-    $mail->From = "suanthnjobs@gmail.com";
+    $mail->From = "";
     $mail->FromName = "User Website Login System";
     
     $mail->addaddress("$email", "Recepient Name");
